@@ -9,7 +9,7 @@ function NavBar(props) {
     },
     {
       name: 'DadJokes',
-      path: '/dadjokes'
+      path: '/jokes'
     }
   ]
   return (

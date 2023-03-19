@@ -6,26 +6,25 @@ import background from '../assets/background2.svg'
 function HomePage(props) {
   const [joke, setJoke] = useState('');
   const dispatch = useDispatch();
-  const randomJoke = useSelector(state => state)
-  console.log(randomJoke.jokes)
+  const randomJoke = useSelector(state => state.jokes)
    const btnHandler = ()=>{
-    dispatch(fetchJokes());
-  }
+     dispatch(fetchJokes());  };
   
   return (
-    <div className="flex flex-row justify-between w-screen h-full items-center pt-4" >
+    <div className="flex flex-row justify-between w-screen min-h-screen flex-grow items-center pt-4 " >
       <div className="p-20">
       <button onClick={btnHandler} className="bg-secondary-color text-black p-4 rounded">Random Joke</button>
-  <div className="text-white py-10">
+        <div className="text-white py-10 items-start max-w-[500px] flex flex-col
+  gap-8 justify-start">
     {randomJoke && (
       <>
-        <div>{randomJoke.jokes.setup}</div>
-        <div>{randomJoke.jokes.punchline}</div>
+        <div>{randomJoke.setup}</div>
+        <div>{randomJoke.punchline}</div>
       </>
     )}
-      </div></div>
+        </div>
+      </div>
         <img className="fixed bottom-0 right-0 w-[100%] object-fit max-w-[1000px]" src={background} alt="cover-image" />
-
 </div>
   );
 }

@@ -21,4 +21,5 @@ html, body, #root, #root > div {
 
  body {
   @apply min-h-screen;
+  font-family: 'Sono', sans-serif;
 }

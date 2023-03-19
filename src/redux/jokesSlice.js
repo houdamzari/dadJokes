@@ -4,9 +4,11 @@ import axios from "axios";
 
 let initialState = {
   setup: '',
-  punchline: ''
+  punchline: '',
+  jokesArr:[]
 }
 
+export const newArr = [];
 
   const headers = {
   'Content-Type': 'application/json',
@@ -18,9 +20,7 @@ export const fetchJokes = createAsyncThunk(
   "jokes/random",
   async (location, { rejectWithValue }) => {
     try {
-      console.log('running')
       const response = await axios.get(import.meta.env.VITE_BASE_URL, { headers });
-      console.log( response.data.body[0])
       return response.data.body[0]
 
     } catch (err) {
@@ -36,6 +36,12 @@ export const jokesSlice = createSlice({
     [fetchJokes.fulfilled]: (state, action) => {
       state.setup = action.payload.setup;
       state.punchline = action.payload.punchline;
+      const newJoke = {
+        setup: state.setup,
+        punchline: state.punchline 
+      }
+      state.jokesArr = [...state.jokesArr, newJoke]
+      newArr = [...state.jokesArr]
     }
   }
   })

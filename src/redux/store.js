@@ -3,7 +3,7 @@ import jokesSlice from './jokesSlice'
 
 const store = configureStore({
   reducer: {
-    jokes : jokesSlice
+    jokes : jokesSlice,
   },
 })
 
