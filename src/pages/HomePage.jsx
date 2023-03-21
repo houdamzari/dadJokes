@@ -4,16 +4,14 @@ import { useDispatch,useSelector } from "react-redux";
 import { fetchJokes } from "../redux/jokesSlice";
 import background from '../assets/background2.svg'
 function HomePage(props) {
-  const [joke, setJoke] = useState('');
   const dispatch = useDispatch();
-  const randomJoke = useSelector(state => state.jokes)
+  const randomJoke = useSelector(state => state)
    const btnHandler = ()=>{
      dispatch(fetchJokes());  };
-  
   return (
     <div className="flex flex-row justify-between w-screen min-h-screen flex-grow items-center pt-4 " >
       <div className="p-20">
-      <button onClick={btnHandler} className="bg-secondary-color text-black p-4 rounded">Random Joke</button>
+      <button onClick={btnHandler} className="bg-secondary-color text-black p-4 rounded relative z-[999]">Random Joke</button>
         <div className="text-white py-10 items-start max-w-[500px] flex flex-col
   gap-8 justify-start">
     {randomJoke && (

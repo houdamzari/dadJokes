@@ -8,7 +8,6 @@ let initialState = {
   jokesArr:[]
 }
 
-export const newArr = [];
 
   const headers = {
   'Content-Type': 'application/json',
@@ -40,8 +39,8 @@ export const jokesSlice = createSlice({
         setup: state.setup,
         punchline: state.punchline 
       }
+      console.log(newJoke)
       state.jokesArr = [...state.jokesArr, newJoke]
-      newArr = [...state.jokesArr]
     }
   }
   })
